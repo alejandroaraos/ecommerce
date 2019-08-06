@@ -1,0 +1,18 @@
+.col-md-4
+  %ul.list-group
+    %li.list-group-item.d-flex.justify-content-between.align-items-center.text-info
+      = link_to "Resumen", home_summary_path, class:"nav-link"
+      %span.badge.badge-primary.badge-pill
+        %br/
+    %li.list-group-item.d-flex.justify-content-between.align-items-center.text-info
+      = link_to "Administrador", home_admin_path, class:"nav-link"
+    %li.list-group-item.d-flex.justify-content-between.align-items-center.text-info
+      = link_to "Reputación", home_reputation_path, class:"nav-link"
+    %li.list-group-item.d-flex.justify-content-between.align-items-center.text-info
+      = link_to "Compras", home_purchases_path, class:"nav-link"
+    %li.list-group-item.d-flex.justify-content-between.align-items-center.text-info
+      = link_to "Productos", home_products_path, class:"nav-link"
+    %li.list-group-item.d-flex.justify-content-between.align-items-center.text-info
+      = link_to "Ventas", home_sales_path, class:"nav-link"
+    %li.list-group-item.d-flex.justify-content-between.align-items-center.text-info{:style => ""}
+      = link_to "Configuración", edit_user_registration_path, class:"nav-link"

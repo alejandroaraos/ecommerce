@@ -1,0 +1,36 @@
+.text-center.mb-0.bg-secondary.h-100.py-5.pt-5.pb-5{:style => "background-size: cover; background-position: left top; background-repeat: repeat;"}
+  .container
+    .row{:style => ""}
+      .mx-auto.col-md-6.col-10.bg-white.p-5.bg-secondary
+        %h2 Registrarse
+        
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .form-group
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class:"width-f"
+          .form-group
+            = f.password_field :password, autocomplete: "new-password", placeholder: "Contraseña (6 carácteres mínimo)", class:"width-f"
+          .form-group
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirmar Contraseña", class:"width-f"
+          .form-group
+            = f.text_field :name, placeholder: "Nombre", class:"width-f"
+          .form-group
+            = f.text_field :last_name, placeholder: "Apellido", class:"width-f"  
+          .form-group
+            = f.text_field :age, placeholder: "Edad", class:"width-f"
+          .form-group
+            = f.label "Imagen de perfil", class:"text-left"
+          .form-group
+            = f.file_field :img, placeholder: "Foto de perfil", class:"width-f"   
+          .form-group
+            = f.text_field :state, placeholder: "Región", class:"width-f"    
+          .form-group
+            = f.text_field :city, placeholder: "Ciudad", class:"width-f"
+          .form-group
+            = f.text_field :street, placeholder: "Calle", class:"width-f"
+            = render "devise/shared/links" 
+          - if devise_mapping.rememberable?
+            .field
+              = f.submit "Registrarse", class:"btn btn-secondary mx-2 w-30"
+              .field
+              %br/ 

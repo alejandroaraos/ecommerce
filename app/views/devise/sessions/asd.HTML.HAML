@@ -1,0 +1,76 @@
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .row
+    = f.text_field :name
+    = f.text_field :age
+
+    = f.text_field :state
+    = f.text_field :city
+    = f.text_field :street
+    .col-md-2
+    = f.submit "Registrarse"
+    = render "devise/shared/links"
+
+                    %a.btn.btn-secondary.mx-2.w-25{:href => "", :style => "\ttext-shadow: 0px 0px 4px black;\tbox-shadow: 0px 0px 4px  black;"} Registrarse
+                %a.btn.btn-secondary.w-25.mx-2{:href => "", :style => "\ttext-shadow: 0px 0px 4px black;\tbox-shadow: 0px 0px 4px  black;"} Volver
+
+
+.text-center.mb-0.bg-secondary.h-100.py-5.pt-5.pb-5{:style => "background-size: cover; background-position: left top; background-repeat: repeat;"}
+  .container
+    .row{:style => ""}
+      .mx-auto.col-md-6.col-10.bg-white.p-5.bg-secondary
+        %h1.mb-4 Iniciar Sesión
+        %form{:style => ""}
+          .form-group
+            %input#form9.form-control{:placeholder => "Nombre", :required => "required", :style => "", :type => "email"}/
+          .form-group
+            %input#form9.form-control{:placeholder => "Apellidos", :style => "", :type => "email"}/
+          .form-group
+            %input#form9.form-control{:placeholder => "Edad", :style => "", :type => "email"}/
+          .form-group.w-100
+            %select.w-100
+              %option{:value => "Hombre"} Hombre
+              %option{:value => "Hembra"} Hembra
+          .form-group
+            %input#form9.form-control{:placeholder => "Comuna", :style => "", :type => "email"}/
+          .form-group
+            %input#form9.form-control{:placeholder => "Ciudad", :style => "", :type => "email"}/
+          %label.text-left Foto de perfil
+          .form-group
+            %input#form9.form-control.w-100{:name => "a", :placeholder => "Avatar", :type => "file"}/
+          .form-group
+            %input#form9.form-control{:placeholder => "Email", :type => "email"}/
+          .form-group.mb-3
+            %input#form10.form-control{:placeholder => "Constraseña", :type => "password"}/
+            %small.form-text.text-muted.text-right
+          %a.btn.btn-secondary.mx-2.w-25{:href => "C:\\Users\\Usuario\\Desktop\\Pingendo\\New Site\\default\\Users/summary.html", :style => "\ttext-shadow: 0px 0px 4px black;\tbox-shadow: 0px 0px 4px  black;"} Registrarse
+          %a.btn.btn-secondary.w-25.mx-2{:href => "C:\\Users\\Usuario\\Desktop\\Pingendo\\New Site\\default\\Users/iniciar.html", :style => "\ttext-shadow: 0px 0px 4px black;\tbox-shadow: 0px 0px 4px  black;"} Volver
+
+
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Registrarse", new_registration_path(resource_name) %><br />
+<% end %>
+
+
+%h2 Sign up
+= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    - if @minimum_password_length
+      %em
+        (#{@minimum_password_length} characters minimum)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .actions
+    = f.submit "Sign up"
+= render "devise/shared/links"

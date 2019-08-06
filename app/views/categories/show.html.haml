@@ -1,0 +1,12 @@
+.card 
+  .card-body
+    %h1.text-center= @category.name
+    - if can? :update, @category
+      %p= @category.description
+      =image_tag @category.c_img.url
+      .row 
+        .offset-md-3.col-md-3
+          = link_to 'Editar', edit_category_path(@category), class:"btn btn-primary btn-block"
+        .col-md-3 
+          = link_to 'Atras', categories_path, class:"btn btn-secondary btn-block"
+    

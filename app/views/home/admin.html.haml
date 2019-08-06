@@ -1,0 +1,16 @@
+
+%h2.my-3.text-center.text-info
+  %b Administrador
+.mx-auto.col-md-12.col-10.bg-white.p-5.bg-secondary
+  %h2.mb-4.text-center.text-info Panel Admin
+  .row
+    .col-md-12
+      .row
+        .col-md-3
+          = link_to 'Categorías', categories_path, class:"btn btn-info btn-block"
+        .col-md-3
+          = link_to 'Nueva cat.', new_category_path, class:"btn btn-info btn-block"
+        .col-md-3
+          = link_to 'Productos', products_path, class:"btn btn-info btn-block"
+        .col-md-3
+          = link_to 'Nuevo prod.', new_product_path, class:"btn btn-info btn-block"

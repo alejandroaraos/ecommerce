@@ -1,0 +1,25 @@
+.text-center.mb-0.bg-secondary.h-100.py-5.pt-5.pb-5{:style => "background-size: cover; background-position: left top; background-repeat: repeat;"}
+  .container
+    .row{:style => ""}
+      .mx-auto.col-md-6.col-10.bg-white.p-5.bg-secondary
+        = form_for @category do |f|
+          - if @category.errors.any?
+            #error_explanation
+              %h2= "#{pluralize(@category.errors.count, "error")} prohibited this category from being saved:"
+              %ul
+                - @category.errors.full_messages.each do |message|
+                  %li= message
+        %h2= title ||= "Titulo" 
+        %br/
+        = form_for @category do |f|
+          .row
+          .form-group
+            = f.text_field :name, placeholder: "Título", class:"width-f"
+          .form-group
+            = f.text_field :description, placeholder: "Descripción", class:"width-f" 
+          .form-group
+            = f.label "Imagen de la categoría", class:"text-left"
+            = f.file_field :c_img, class:"width-f"
+          .form-group
+            = f.submit "Enviar", class:"btn btn-secondary mx-2 w-30"   
+            = link_to "Volver", root_path, class:"btn btn-secondary mx-2 w-30"    

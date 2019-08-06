@@ -1,0 +1,41 @@
+.container.py-2
+  .row
+
+    .row
+    .col-md-8
+      %h2.my-3.text-center.text-info
+        %b Categorías
+      .row
+        .col-md-12
+          .mx-auto.col-md-12.col-10.bg-white.p-5.bg-secondary
+            %h2.mb-4.text-center.text-info Panel Categorías
+            .row
+              .col-md-12
+                .row
+                  .col-md-12
+                    .row
+                      .col-md-12
+                        .table-responsive
+                          %table.table.table-bordered
+                            %thead.thead-dark
+                              %tr
+                                %th Categoría
+                                %th Acciones
+                            %tbody
+                              - @categories.each do |category|
+                                %tr
+                                  %td.text-center.w-50= category.name
+                                  %td
+                                    = link_to category, class:"button btn my-sm-0 btn-info px-2 my-2 mx-1" do
+                                      %i.fa.d-inline.fa-lg.fa-eye
+                                    = link_to edit_category_path(category), class:"button btn my-sm-0 btn-info px-2 my-2 mx-1" do
+                                      %i.fa.d-inline.fa-lg.fa-wrench
+                                    = link_to category, method: :delete, data: { confirm: 'Estas seguro de borrar esta categoría?' }, class:"button btn my-sm-0 btn-info px-2 my-2 mx-1" do
+                                      %i.fa.d-inline.fa-lg.fa-trash
+
+
+
+
+
+
+  

@@ -1,30 +1,17 @@
-%p#notice= notice
-
-%p
-  %b P name:
-  = @product.p_name
-%p
-  %b P description:
-  = @product.p_description
-%p
-  %b P price:
-  = @product.p_price
-%p
-  %b P quantify:
-  = @product.p_quantify
-%p
-  %b P send:
-  = @product.p_send
-%p
-  %b Decimal:
-  = @product.decimal
-%p
-  %b P available:
-  = @product.p_available
-%p
-  %b User:
-  = @product.user
-
-= link_to 'Edit', edit_product_path(@product)
-\|
-= link_to 'Back', products_path
+.container-fluid
+  .card.shadonw-5.my-5
+    .card-body
+      .row
+        .col-md-8
+          %h1.text-center= @product.p_name
+          - if can? :edit, @product
+            .my-3
+              = link_to 'Edit', edit_product_path(@product),class:"btn btn-primary btn-block"
+              = link_to 'Add image', new_product_myimage_path(@product),class:"btn btn-secondary btn-block"
+              
+          %p= @product.p_description
+          %p= "Costo: #{@product.p_price}"
+          %p= "En stock: #{@product.p_quantify}"
+          %p= "Costo envio: #{@product.p_send}"
+          %p= "Disponible: #{@product.p_available}"
+        

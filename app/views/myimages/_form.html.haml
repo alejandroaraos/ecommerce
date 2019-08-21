@@ -3,7 +3,7 @@
     .row{:style => ""}
       .mx-auto.col-md-6.col-10.bg-white.p-5.bg-secondary
         %h2= title ||= "Titulo"
-        = form_for @product do |f|
+        = form_for @image do |f|
           - if @product.errors.any?
             #error_explanation
               %h2= "#{pluralize(@product.errors.count, "error")} prohibited this product from being saved:"
@@ -12,22 +12,11 @@
                   %li= message
               
           .form-group
-            = f.text_field :p_name, placeholder: "Nombre del producto", class:"width-f"
+            = f.text_field :title, placeholder: "Nombre del producto", class:"width-f"
           .form-group
-            = f.text_area :p_description, placeholder: "Descripción del producto", class:"width-f"
+            = f.text_area :description, placeholder: "Descripción del producto", class:"width-f"
           .form-group
-            = f.text_field :p_price, placeholder: "Precio del producto", class:"width-f"  
-          .form-group
-            = f.number_field :p_quantify, placeholder: "Cantidad", class:"width-f"
-          .form-group
-            = f.text_field :p_send, placeholder: "send?", class:"width-f" 
-          .form-group
-            = f.label "Disponible?", class:"text-left"
-            = f.check_box :p_available, class:"width-f"
-          - Category.all.each do |category|
-            .col-md-4.my-5
-              = check_box_tag "categories[]", category.id
-              = category.name
+            = f.file_field :img, placeholder: "imagen", class:"width-f"  
           .form-group
             = f.submit "Guardar", class:"btn btn-secondary mx-2 w-30"   
             = link_to "Volver", home_admin_path, class:"btn btn-secondary mx-2 w-30"    
